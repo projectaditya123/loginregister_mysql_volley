@@ -51,6 +51,23 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(loginIntent);
             }
         });
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String sUsername = username.getText().toString();
+                String sEmail = email.getText().toString();
+                String sPassword = passsword.getText().toString();
+                String sConfPassword = confPassword.getText().toString();
+
+                if (sPassword.equals(sConfPassword) && !sPassword.equals("")) {
+                    CreateDataToServer(sUsername, sEmail, sPassword);
+                    Intent loginIntent = new Intent(MainActivity.this, Login.class);
+                    startActivity(loginIntent);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Gagal! Pasword tidak cocok!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
     public void CreateDataToServer(final String username, final String email, final String password) {
         if (checkNetworkConnection()) {
@@ -95,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             },2000);
         } else {
-            Toast.makeText(getApplicationContext(),"Registrasi Berhasil",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"Tidak ada koneksi internet",Toast.LENGTH_SHORT).show();
         }
     }
             public boolean checkNetworkConnection() {
