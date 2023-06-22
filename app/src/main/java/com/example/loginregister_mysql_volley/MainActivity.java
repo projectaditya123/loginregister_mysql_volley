@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                                 JSONObject jsonObject = new JSONObject(response);
                                 String resp = jsonObject.getString("server_response");
                                 if (resp.equals("[{\"status\":\"ok\"}]")) {
-                                    Toast.makeText(getApplicationContext(),"Registrasi Berhasil",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(),"Registration Berthile",Toast.LENGTH_SHORT).show();
                                 } else {
                                     Toast.makeText(getApplicationContext(),resp,Toast.LENGTH_SHORT).show();
                                 }
