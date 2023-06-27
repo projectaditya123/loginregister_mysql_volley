@@ -74,12 +74,11 @@ public class Login extends AppCompatActivity {
                                     Toast.makeText(getApplicationContext(), "Login Berhasil", Toast.LENGTH_SHORT).show();
                                     Intent dashboardIntent = new Intent(Login.this, Dashboard.class);
                                     startActivity(dashboardIntent);
-                                    finish(); // Hapus aktivitas Login dari tumpukan aktivitas
                                 } else {
                                     Toast.makeText(getApplicationContext(), resp, Toast.LENGTH_SHORT).show();
                                 }
                             } catch (JSONException e) {
-                             e.printStackTrace();
+                                e.printStackTrace();
                             }
 
 
@@ -92,7 +91,7 @@ public class Login extends AppCompatActivity {
             }){
                 @Override
                 protected Map<String, String> getParams() throws AuthFailureError {
-                   Map<String,String> params = new HashMap<>();
+                    Map<String,String> params = new HashMap<>();
                     params.put("username", username);
                     params.put("password", password);
                     return params;
